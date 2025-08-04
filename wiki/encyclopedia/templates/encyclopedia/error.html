@@ -1,0 +1,10 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %}
+Page Does Not Exist
+{% endblock %}
+{% block body %}
+<div>
+    {{error|safe}}
+    <p>If you would like to create a new page about this topic, do so <a href="{% url 'wiki:addpage' %}">Here</a></p>
+</div>
+{% endblock %}

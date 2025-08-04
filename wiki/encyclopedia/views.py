@@ -22,6 +22,10 @@ def index(request):
     })
 
 def entry(request, title):
+    if util.get_entry(title) == None:
+        return render(request, "encyclopedia/error.html", {
+            "error": markdown2.markdown("##The page you are looking for does not exist")
+        })
     return render(request, "encyclopedia/title.html", {
         "title": title,
         "content": markdown2.markdown(util.get_entry(title))
